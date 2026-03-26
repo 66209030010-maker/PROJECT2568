@@ -9,7 +9,6 @@ import {
   HiOutlineX,
 } from "react-icons/hi";
 import { FaUser } from "react-icons/fa";
-import { FaGamepad } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -21,7 +20,6 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  // แปลบทบาทเป็นภาษาไทย
   const getRoleLabel = (role) => {
     const roleMap = {
       admin: "ผู้ดูแลระบบ",
@@ -32,32 +30,37 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800/80 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-50">
+    <nav className="bg-[#fafaf8]/80 backdrop-blur-md border-b border-neutral-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <FaGamepad className="text-indigo-500 text-2xl" />
-            <span className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
-              ShopGameZone
+            <span className="text-xl font-serif font-semibold tracking-tight text-neutral-900">
+              ShopZone
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-1">
             <Link
               to="/"
-              className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+              className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
             >
-              ตลาด
+              ร้านค้า
             </Link>
 
             {!user && (
               <>
-                <Link to="/login" className="btn-secondary text-sm py-2 px-4">
+                <Link 
+                  to="/login" 
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
+                >
                   เข้าสู่ระบบ
                 </Link>
-                <Link to="/register" className="btn-primary text-sm py-2 px-4">
+                <Link 
+                  to="/register" 
+                  className="ml-2 bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium px-5 py-2 rounded-full transition-all"
+                >
                   สมัครสมาชิก
                 </Link>
               </>
@@ -67,13 +70,13 @@ const Navbar = () => {
               <>
                 <Link
                   to="/buyer/orders"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
-                  คำสั่งซื้อของฉัน
+                  คำสั่งซื้อ
                 </Link>
                 <Link
                   to="/buyer/wallet"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   กระเป๋าเงิน
                 </Link>
@@ -84,25 +87,25 @@ const Navbar = () => {
               <>
                 <Link
                   to="/seller/dashboard"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   แดชบอร์ด
                 </Link>
                 <Link
                   to="/seller/products"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
-                  สินค้าของฉัน
+                  สินค้า
                 </Link>
                 <Link
                   to="/seller/sales"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   ยอดขาย
                 </Link>
                 <Link
                   to="/seller/withdraw"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   ถอนเงิน
                 </Link>
@@ -113,49 +116,49 @@ const Navbar = () => {
               <>
                 <Link
                   to="/admin/users"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   ผู้ใช้
                 </Link>
                 <Link
                   to="/admin/products"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
                   สินค้า
                 </Link>
                 <Link
                   to="/admin/withdraw"
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-neutral-600 hover:text-neutral-900 px-4 py-2 text-sm font-medium transition-colors"
                 >
-                  การถอนเงิน
+                  การถอน
                 </Link>
               </>
             )}
 
             {user && (
-              <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-gray-700">
+              <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-neutral-200">
                 <div className="text-sm">
-                  <span className="text-gray-400">สวัสดี, </span>
-                  <span className="text-white font-medium">{user.name}</span>
-                  <span className="ml-2 text-xs bg-indigo-600/30 text-indigo-300 px-2 py-0.5 rounded-full">
+                  <span className="text-neutral-500">สวัสดี, </span>
+                  <span className="text-neutral-900 font-medium">{user.name}</span>
+                  <span className="ml-2 text-xs bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded-full">
                     {getRoleLabel(user.role)}
                   </span>
                 </div>
                 {(user.role === "buyer" || user.role === "seller") && (
-                  <span className="text-emerald-400 text-sm font-medium">
+                  <span className="text-[#E87975] text-sm font-semibold">
                     ฿{parseFloat(user.balance || 0).toLocaleString()}
                   </span>
                 )}
                 <Link
                   to="/profile"
-                  className="text-gray-400 hover:text-indigo-400 transition-colors"
+                  className="text-neutral-500 hover:text-neutral-900 transition-colors"
                   title="โปรไฟล์"
                 >
-                  <FaUser className="text-xl" />
+                  <FaUser className="text-lg" />
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="text-gray-400 hover:text-red-400 transition-colors"
+                  className="text-neutral-500 hover:text-[#E87975] transition-colors"
                   title="ออกจากระบบ"
                 >
                   <HiOutlineLogout className="text-xl" />
@@ -166,7 +169,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-gray-400"
+            className="md:hidden text-neutral-600 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? (
@@ -179,26 +182,26 @@ const Navbar = () => {
 
         {/* Mobile Nav */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div className="md:hidden pb-4 space-y-1 border-t border-neutral-100 pt-4">
             <Link
               to="/"
-              className="block text-gray-300 hover:text-white px-3 py-2 text-sm"
+              className="block text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
               onClick={() => setMobileOpen(false)}
             >
-              ตลาด
+              ร้านค้า
             </Link>
             {!user && (
               <>
                 <Link
                   to="/login"
-                  className="block text-gray-300 hover:text-white px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   เข้าสู่ระบบ
                 </Link>
                 <Link
                   to="/register"
-                  className="block text-gray-300 hover:text-white px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   สมัครสมาชิก
@@ -209,14 +212,14 @@ const Navbar = () => {
               <>
                 <Link
                   to="/buyer/orders"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
-                  คำสั่งซื้อของฉัน
+                  คำสั่งซื้อ
                 </Link>
                 <Link
                   to="/buyer/wallet"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   กระเป๋าเงิน
@@ -227,28 +230,28 @@ const Navbar = () => {
               <>
                 <Link
                   to="/seller/dashboard"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   แดชบอร์ด
                 </Link>
                 <Link
                   to="/seller/products"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
-                  สินค้าของฉัน
+                  สินค้า
                 </Link>
                 <Link
                   to="/seller/sales"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   ยอดขาย
                 </Link>
                 <Link
                   to="/seller/withdraw"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   ถอนเงิน
@@ -259,24 +262,24 @@ const Navbar = () => {
               <>
                 <Link
                   to="/admin/users"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   ผู้ใช้
                 </Link>
                 <Link
                   to="/admin/products"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   สินค้า
                 </Link>
                 <Link
                   to="/admin/withdraw"
-                  className="block text-gray-300 px-3 py-2 text-sm"
+                  className="block text-neutral-600 hover:bg-neutral-100 px-4 py-3 rounded-xl text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
-                  การถอนเงิน
+                  การถอน
                 </Link>
               </>
             )}
@@ -286,7 +289,7 @@ const Navbar = () => {
                   handleLogout();
                   setMobileOpen(false);
                 }}
-                className="block text-red-400 px-3 py-2 text-sm w-full text-left"
+                className="block text-[#E87975] hover:bg-red-50 px-4 py-3 rounded-xl text-sm font-medium w-full text-left"
               >
                 ออกจากระบบ
               </button>
